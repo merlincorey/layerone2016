@@ -79,7 +79,7 @@ void StripLights_DisplayClearHSV(hsv_color hsv );
 led_color hsv_to_rgb(hsv_color hsv);
 hsv_color rgb_to_hsv(led_color rgb);
 uint8 TweenU8toU8(uint8 source, uint8 target,int amount);
-void FadeToColor( uint16_t startx, uint16_t count, uint32 target, uint32 delay, int direction) ;
+void FadeToColor( uint16_t startx, uint16_t count, uint32_t target, uint32_t delay, int direction) ;
 void FadeStrip(  uint16 start, int16 length ,int percentage );
 uint32 AddColor( led_color c1, led_color c2 );
 void Falloff(uint16_t count);

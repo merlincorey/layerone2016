@@ -51,6 +51,8 @@
 * Parity    : None
 ******************************************************************************/
 
+//#define USE_EEPROM (1)
+
 #include <project.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -76,10 +78,16 @@ void echo_uart ( void );
 
 void run_server ( void );
 
-uint32_t GetRand ( int size )
+static uint32_t GetRand ( int size )
 {
     return getColor ( rand() % size );
 
+}
+
+void trigger_delay( const uint8_t delay )
+{
+    StripLights_Trigger ( 1 );
+    CyDelay ( delay);
 }
 
 void Select ( unsigned char ch )
@@ -252,7 +260,8 @@ void Select ( unsigned char ch )
             Falloff ( 100 );
             break;
 
-
+            // these use about 5000 bytes of flash.
+#if 0
         case 'x': {
                 float ii, i;
 
@@ -260,15 +269,14 @@ void Select ( unsigned char ch )
                 for ( ii = 1; ii < 128.0f; ii += 15 )
                     for ( i = 0; i < 3; i += 0.1f ) {
                         float val;
-                        val = ( sin ( i ) * ii );
+                        val = ( sinf ( i ) * ii );
                         StripLights_DisplayClear ( RGB ( val, ( val ), val ) );
                         CyDelay ( 25 );
                     }
 
                 for ( a = 0; a < 100; a++ ) {
                     FadeStrip ( StripLights_MIN_X, StripLights_MAX_X + 1, a );
-                    StripLights_Trigger ( 1 );
-                    CyDelay ( 25 );
+                       trigger_delay(25);
                 }
 
                 break;
@@ -279,23 +287,21 @@ void Select ( unsigned char ch )
 
                 for ( y = 0; y < StripLights_MAX_X; y++ ) {
                     for ( x = 0; x < StripLights_MAX_X + 1; x += 1.0f ) {
-                        val = ( 1 + sin ( ( 45.0f + ( x + y ) ) / 10 ) ) * 128.0f;
+                        val = ( 1 + sinf ( ( 45.0f + ( x + y ) ) / 10 ) ) * 128.0f;
                         StripLights_Pixel ( x, 0, RGB ( val, ( val ), val ) );
                     }
 
-                    StripLights_Trigger ( 1 );
-                    CyDelay ( 25 );
+                  trigger_delay(25);
                 }
 
                 for ( a = 0; a < 100; a++ ) {
                     FadeStrip ( StripLights_MIN_X, StripLights_MAX_X + 1, a );
-                    StripLights_Trigger ( 1 );
-                    CyDelay ( 25 );
+
                 }
 
                 break;
             }
-
+#endif
         case ' ':
             //printf ( "StripLights_BLACK\n" );
             StripLights_DisplayClear ( 0 );
@@ -344,11 +350,26 @@ void Select ( unsigned char ch )
     }
 }
 
+#if USE_EEPROM
+static const uint8 CYCODE ee_Brightness[]= { 0xAA} ;
+uint brightness[1] ;
+#endif
+
 int main()
 {
+#if USE_EEPROM
+    
+    eeprom_Start();
+    
+    if( *(volatile uint8*) &ee_Brightness[0] == 0xaa ) {
+        
+        // set default
+        brightness[0]= 3;
+        eeprom_Write((const uint8*)&brightness[0],ee_Brightness,1);
+    }
+#endif
 
     StripLights_Start();
-
 
     /* Start UART component and clear the TX,RX buffers */
     UART_Start();
@@ -394,7 +415,12 @@ int main()
         run_server();
 
     } else {
-        StripLights_Dim ( 4 );
+#if USE_EEPROM
+        StripLights_Dim (  brightness[0] );
+#else
+        StripLights_Dim ( 2 );
+#endif
+
         StripLights_DisplayClear ( StripLights_RED_MASK );
         CyDelay ( 500 );
     }
@@ -853,6 +879,7 @@ void run_server ( void )
     }
 }
 
+    #if USE_ECHO
 void echo_uart ( void )
 {
     while ( 1 ) {
@@ -883,6 +910,7 @@ void echo_uart ( void )
         }
     }
 }
+#endif
 
 void ColorFader ( int count , uint32 color )
 {
@@ -957,10 +985,7 @@ void CandyCane ( uint16_t count , uint32 c1, uint32 c2 )
         // wait and trigger
         while ( StripLights_Ready() == 0 );
 
-        StripLights_Trigger ( 1 );
-
-        // delay between transitions
-        CyDelay ( 100 );
+        trigger_delay(100);
 
         BOOT_CHECK();
     }
@@ -1018,11 +1043,7 @@ void CandyCaneSmooth ( uint16_t count , led_color c1, led_color c2 )
             // wait and trigger
             while ( StripLights_Ready() == 0 );
 
-            StripLights_Trigger ( 1 );
-
-
-            // delay between transitions
-            CyDelay ( 120 );
+           trigger_delay(120);
 
             BOOT_CHECK();
         }
@@ -1049,10 +1070,8 @@ void SingleLEDPing ( uint16_t count , uint8 fade_amount, uint32 color )
         StripLights_Pixel ( x % ( StripLights_MAX_X + 1 ), 0, color );
 
         while ( StripLights_Ready() == 0 );
-
-        StripLights_Trigger ( 1 );
-
-        CyDelay ( 20 );
+                  
+        trigger_delay(20);
 
         BOOT_CHECK();
         i++ ;
@@ -1082,8 +1101,7 @@ void SingleLEDPingPong ( uint16_t count , uint8 fade_amount, uint32 color )
 
             while ( StripLights_Ready() == 0 );
 
-            StripLights_Trigger ( 1 );
-            CyDelay ( 50 );
+            trigger_delay(50);
             BOOT_CHECK();
         }
 
@@ -1100,10 +1118,8 @@ void SingleLEDPingPong ( uint16_t count , uint8 fade_amount, uint32 color )
 
             while ( StripLights_Ready() == 0 );
 
-            StripLights_Trigger ( 1 );
-
-            CyDelay ( 50 );
-
+            trigger_delay(50);
+            
             BOOT_CHECK();
         }
     }
@@ -1129,8 +1145,7 @@ void Snake ( uint16_t count )
 
         while ( StripLights_Ready() == 0 );
 
-        StripLights_Trigger ( 1 );
-        CyDelay ( 50 );
+        trigger_delay(50);
 
         if ( x % 10 == 5 ) { startColor += 0x010101; }
 
@@ -1170,8 +1185,7 @@ void Twinkle ( uint16_t count )
 
         while ( StripLights_Ready() == 0 );
 
-        StripLights_Trigger ( 1 );
-        CyDelay ( 15 );
+        trigger_delay(15);
 
         BOOT_CHECK();
     }
@@ -1255,8 +1269,7 @@ void Icicle ( uint8 redraw, uint8 length, int fade_amount )
             while ( StripLights_Ready() == 0 );
 
             //push current data to led strip
-            StripLights_Trigger ( 1 );
-            CyDelay ( 15 );
+            trigger_delay(15);
         }
 
         // check if firmware load requested
@@ -1303,8 +1316,7 @@ void Sparkler ( uint16 runtime, int fade_amount , int num_sparkles , char white 
         while ( StripLights_Ready() == 0 );
 
         //push current data to led strip
-        StripLights_Trigger ( 1 );
-        CyDelay ( 15 );
+                  trigger_delay(15);
     }
 
     if ( fade_amount ) {
@@ -1317,8 +1329,7 @@ void Sparkler ( uint16 runtime, int fade_amount , int num_sparkles , char white 
             while ( StripLights_Ready() == 0 );
 
             //push current data to led strip
-            StripLights_Trigger ( 1 );
-            CyDelay ( 3 );
+                  trigger_delay(3);
         }
     }
 }
@@ -1357,9 +1368,7 @@ void ColorWheel ( uint16_t count )
 
         while ( StripLights_Ready() == 0 );
 
-        StripLights_Trigger ( 1 );
-
-        CyDelay ( 50 );
+       trigger_delay(50);
 
         BOOT_CHECK();
     }
@@ -1386,9 +1395,7 @@ void Tweener ( uint16_t count, uint32 from )
 
         while ( StripLights_Ready() == 0 );
 
-        StripLights_Trigger ( 1 );
-        CyDelay ( 50 );
-
+        trigger_delay(50);
     }
 
 }
@@ -1448,8 +1455,7 @@ void FadeToColor ( uint16_t startx, uint16_t count, uint32_t target, uint32_t de
         if ( delay ) {
             while ( StripLights_Ready() == 0 );
 
-            StripLights_Trigger ( 1 );
-            CyDelay ( delay );
+            trigger_delay(delay);
         }
 
         offset = oldoffset;
@@ -1490,18 +1496,14 @@ uint32 TweenerHSV ( uint16_t startx, uint16_t count, uint32 from, uint32 to, uin
         if ( delay ) {
             while ( StripLights_Ready() == 0 );
 
-            StripLights_Trigger ( 1 );
-            CyDelay ( delay );
-        }
+           trigger_delay(delay);
+         }
 
     }
 
     while ( StripLights_Ready() == 0 );
-
-    StripLights_Trigger ( 1 );
-
-    CyDelay ( 100 );
-
+                  
+    trigger_delay(100);
 
     return result.hsv;
 }
@@ -1584,8 +1586,8 @@ void Falloff ( uint16_t count )
 
             while ( StripLights_Ready() == 0 );
 
-            StripLights_Trigger ( 1 );
-            CyDelay ( 25 );
+            trigger_delay(25);       
+
 
             y++;
 
@@ -1849,8 +1851,8 @@ void Fire2012 ( int cold )
 
     while ( StripLights_Ready() == 0 );
 
-    StripLights_Trigger ( 1 );
-    CyDelay ( 16 );
+    trigger_delay(16);        
+
 }
 
 void Fire2012a ( int cold )
@@ -1867,7 +1869,7 @@ void Fire2012a ( int cold )
 
     // Step 2.  Heat from each cell drifts 'up' and diffuses a little
     for (  k = NUM_LEDS - 3; k > 0; k-- ) {
-        heat[k] = ( heat[k - 1] + heat[k - 2] + heat[k - 2] ) / 3;
+        heat[k] = ( ( heat[k - 1] + heat[k - 2]) + heat[k - 2] ) / 3;
     }
 
     // Step 3.  Randomly ignite new 'sparks' of heat near the bottom
@@ -1890,8 +1892,8 @@ void Fire2012a ( int cold )
 
     while ( StripLights_Ready() == 0 );
 
-    StripLights_Trigger ( 1 );
-    CyDelay ( 16 );
+    trigger_delay(16);        
+
 }
 
 static int pos = 0, dir = 1; // Position, direction of "eye"
@@ -1910,10 +1912,8 @@ void Larson1 ( int count  )
         StripLights_Pixel ( pos + 2, 0,	RGB ( 0x10, 0x00, 0x00 ) ); // Dark red
 
         while ( StripLights_Ready() == 0 );
+        trigger_delay(50);        
 
-        StripLights_Trigger ( 1 );
-
-        CyDelay ( 50 );
 
         // Rather than being sneaky and erasing just the tail pixel,
         // it's easier to erase it all and draw a new one next time.
@@ -1971,9 +1971,8 @@ void Meet ( uint16_t count )
         FadeStrip ( StripLights_MIN_X, StripLights_MAX_X, 5 );
 
         while ( StripLights_Ready() == 0 );
+        trigger_delay(50);        
 
-        StripLights_Trigger ( 1 );
-        CyDelay ( 50 );
 
     }
 }
@@ -2000,8 +1999,8 @@ void Sparky ( uint16_t count )
 
         twinks ( x1, 5 + ( rand() % 5 ) );
 
-        StripLights_Trigger ( 1 );
-        CyDelay ( 5 );
+        trigger_delay(5);        
+
     }
 
 }

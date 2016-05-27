@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="L12016_Lights">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="L12016_Lights\Bootloadable L12016\Source Files">
 <ExpandedNodeIds>
 <v>L12016_Lights</v>
 <v>L12016_Lights\Bootloadable L12016</v>
@@ -59,6 +59,9 @@
 <v>L12016_Lights\Bootloadable L12016\Generated_Source\PSoC4\cy_lfclk</v>
 <v>L12016_Lights\Bootloadable L12016\Generated_Source\PSoC4\cy_lfclk\CyLFClk.c</v>
 <v>L12016_Lights\Bootloadable L12016\Generated_Source\PSoC4\cy_lfclk\CyLFClk.h</v>
+<v>L12016_Lights\Bootloadable L12016\Generated_Source\PSoC4\eeprom</v>
+<v>L12016_Lights\Bootloadable L12016\Generated_Source\PSoC4\eeprom\eeprom.c</v>
+<v>L12016_Lights\Bootloadable L12016\Generated_Source\PSoC4\eeprom\eeprom.h</v>
 <v>L12016_Lights\Bootloadable L12016\Generated_Source\PSoC4\ESP_RST</v>
 <v>L12016_Lights\Bootloadable L12016\Generated_Source\PSoC4\ESP_RST\ESP_RST.c</v>
 <v>L12016_Lights\Bootloadable L12016\Generated_Source\PSoC4\ESP_RST\ESP_RST.h</v>
@@ -303,6 +306,72 @@
 <v>L12016_Lights\Bootloadable L12016</v>
 <v>L12016_Lights\Bootloadable L12016\CortexM0</v>
 <v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\Boot_P0_7.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\Boot_P0_7_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\Bootloadable.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\CH_PD.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\CH_PD_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\comms.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\cybootloader.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLFClk.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\eeprom.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\ESP_RST.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\ESP_RST_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\GPIO0.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\GPIO0_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\GPIO2.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\GPIO2_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\P1_5.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\P1_5_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\P1_6.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\P1_6_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\StripLights.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\StripLights_fonts.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\StripLights_isr.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\StripLights_StringSel.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\StripLights_StringSel_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_BOOT.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_rx.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_rx_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SCB_IRQ.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SCBCLK.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SPI_UART.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SPI_UART_INT.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_tx.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_tx_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_UART.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_UART_BOOT.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\utils.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\uWIFI.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\uWIFI_BOOT.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\uWIFI_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\uWIFI_rx.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\uWIFI_rx_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\uWIFI_SCB_IRQ.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\uWIFI_SCBCLK.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\uWIFI_SPI_UART.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\uWIFI_SPI_UART_INT.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\uWIFI_tx.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\uWIFI_tx_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\uWIFI_UART.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\uWIFI_UART_BOOT.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Bootloadable L12016.cyacd</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Bootloadable L12016.elf</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Bootloadable L12016.hex</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Bootloadable L12016.map</v>
 <v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Release</v>
 <v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Release\Listing Files</v>
 <v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Release\Listing Files\Boot_P0_7.lst</v>
@@ -321,6 +390,7 @@
 <v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Release\Listing Files\cymetadata.lst</v>
 <v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Release\Listing Files\cyPm.lst</v>
 <v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Release\Listing Files\cyutils.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Release\Listing Files\eeprom.lst</v>
 <v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Release\Listing Files\ESP_RST.lst</v>
 <v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Release\Listing Files\ESP_RST_PM.lst</v>
 <v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Release\Listing Files\GPIO0.lst</v>
@@ -374,11 +444,50 @@
 <v>L12016_Lights\StripLightLib</v>
 <v>L12016_Lights\StripLightLib\DP8051</v>
 <v>L12016_Lights\StripLightLib\DP8051\DP8051_Keil_951</v>
+<v>L12016_Lights\StripLightLib\DP8051\DP8051_Keil_951\Debug</v>
+<v>L12016_Lights\StripLightLib\DP8051\DP8051_Keil_951\Debug\StripLightLib.lib</v>
 <v>L12016_Lights\StripLightLib\DP8051\DP8051_Keil_951\Release</v>
 <v>L12016_Lights\StripLightLib\DP8051\DP8051_Keil_951\Release\StripLightLib.lib</v>
 <v>L12016_Lights\UART_Bootloader</v>
 <v>L12016_Lights\UART_Bootloader\CortexM0</v>
 <v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\Boot_P0_7.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\Boot_P0_7_PM.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\Bootloader.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\Clock.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLFClk.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\P1_6.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\P1_6_PM.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\PWM.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\PWM_PM.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\UART.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_BOOT.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_Btldr.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_PM.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_rx.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_rx_PM.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SCB_IRQ.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SCBCLK.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SPI_UART.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SPI_UART_INT.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_tx.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_tx_PM.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_UART.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_UART_BOOT.lst</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\UART_Bootloader.elf</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\UART_Bootloader.hex</v>
+<v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Debug\UART_Bootloader.map</v>
 <v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Release</v>
 <v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Release\Listing Files</v>
 <v>L12016_Lights\UART_Bootloader\CortexM0\ARM_GCC_493\Release\Listing Files\Boot_P0_7.lst</v>
@@ -423,6 +532,58 @@
 <VisibleNodeIds>
 <v>L12016_Lights</v>
 <v>L12016_Lights\Bootloadable L12016</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\Boot_P0_7.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\Boot_P0_7_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\Bootloadable.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\CH_PD.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\CH_PD_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\Cm0Start.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\comms.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\cybootloader.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLFClk.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\eeprom.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\ESP_RST.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\ESP_RST_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\GPIO0.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\GPIO0_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\GPIO2.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\GPIO2_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\P1_5.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\P1_5_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\P1_6.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\P1_6_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\StripLights.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\StripLights_fonts.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\StripLights_isr.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\StripLights_StringSel.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\StripLights_StringSel_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_BOOT.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_rx.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_rx_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SCB_IRQ.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SCBCLK.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SPI_UART.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_SPI_UART_INT.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_tx.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_tx_PM.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_UART.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\UART_UART_BOOT.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\utils.lst</v>
+<v>L12016_Lights\Bootloadable L12016\CortexM0\ARM_GCC_493\Debug\Listing Files\uWIFI.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -442,6 +603,7 @@
 <v>L12016_Lights\Bootloadable L12016\Bootloadable_v1_50.pdf</v>
 <v>L12016_Lights\Bootloadable L12016\cy_pins_v2_20</v>
 <v>L12016_Lights\Bootloadable L12016\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>L12016_Lights\Bootloadable L12016\Em_EEPROM_v1_10.pdf</v>
 <v>L12016_Lights\Bootloadable L12016\Gnd_v1_0</v>
 <v>L12016_Lights\Bootloadable L12016\Gnd_v1_0\Gnd_v1_0.pdf</v>
 <v>L12016_Lights\Bootloadable L12016\LED_v1_0</v>
@@ -483,6 +645,7 @@
 <v>L12016_Lights\Bootloadable L12016\Bootloadable_v1_50.pdf</v>
 <v>L12016_Lights\Bootloadable L12016\cy_pins_v2_20</v>
 <v>L12016_Lights\Bootloadable L12016\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>L12016_Lights\Bootloadable L12016\Em_EEPROM_v1_10.pdf</v>
 <v>L12016_Lights\Bootloadable L12016\Gnd_v1_0</v>
 <v>L12016_Lights\Bootloadable L12016\Gnd_v1_0\Gnd_v1_0.pdf</v>
 <v>L12016_Lights\Bootloadable L12016\LED_v1_0</v>
@@ -550,8 +713,10 @@
 <name v=".\Bootloadable L12016.cydsn\main.c" />
 <name v=".\Bootloadable L12016.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\Bootloadable L12016.cydsn\Bootloadable L12016.cydwr" />
-<name v=".\Bootloadable L12016.cydsn\effects.h" />
 <name v=".\Bootloadable L12016.cydsn\Generated_Source\PSoC4\StripLights.h" />
+<name v=".\Bootloadable L12016.cydsn\Generated_Source\PSoC4\eeprom.c" />
+<name v=".\Bootloadable L12016.cydsn\utils.c" />
+<name v=".\Bootloadable L12016.cydsn\comms.c" />
 </OpenDocs>
 <config v="Release" />
 <AutoUpdate v="true" />
