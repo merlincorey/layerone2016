@@ -63,7 +63,10 @@
 #define MIN(a,b) (((a)<(b))?(a):(b))
 #define MAX(a,b) (((a)>(b))?(a):(b))
 
+
 #include <effects.h>
+
+
 
 //#define REVERSE_DIRECTION ( 1 )
 
@@ -260,23 +263,37 @@ void Select ( unsigned char ch )
             Falloff ( 100 );
             break;
 
-            // these use about 5000 bytes of flash.
-#if 0
+            // these use about 5000 bytes of flash with default math lib
+            //  Flash used: 25472 of 32768 bytes (77.7 %). Bootloader: 4864 bytes. Application: 20480 bytes. Metadata: 128 bytes.
+            //  SRAM used: 2648 of 4096 bytes (64.6 %). Stack: 1024 bytes. Heap: 256 bytes.
+            // without
+            //  Flash used: 20480 of 32768 bytes (62.5 %). Bootloader: 4864 bytes. Application: 15488 bytes. Metadata: 128 bytes.
+            //  SRAM used: 2648 of 4096 bytes (64.6 %). Stack: 1024 bytes. Heap: 256 bytes.
+            // cmsis
+            //  Flash used: 22144 of 32768 bytes (67.6 %). Bootloader: 4864 bytes. Application: 17152 bytes. Metadata: 128 bytes.
+            //  SRAM used: 2648 of 4096 bytes (64.6 %). Stack: 1024 bytes. Heap: 256 bytes.
+            // fxmath
+            //  Flash used: 22912 of 32768 bytes (69.9 %). Bootloader: 4864 bytes. Application: 17920 bytes. Metadata: 128 bytes.
+            //  SRAM used: 2656 of 4096 bytes (64.8 %). Stack: 1024 bytes. Heap: 256 bytes.
+            
+        
+#ifdef USE_FLOAT_APPROX
+                
         case 'x': {
-                float ii, i;
+                float32_t ii, i;
 
                 //printf("ping pong fader\n");
                 for ( ii = 1; ii < 128.0f; ii += 15 )
                     for ( i = 0; i < 3; i += 0.1f ) {
-                        float val;
-                        val = ( sinf ( i ) * ii );
+                        float32_t val;
+                        val = ( arm_sin_f32 ( i ) * ii );
                         StripLights_DisplayClear ( RGB ( val, ( val ), val ) );
                         CyDelay ( 25 );
                     }
 
                 for ( a = 0; a < 100; a++ ) {
                     FadeStrip ( StripLights_MIN_X, StripLights_MAX_X + 1, a );
-                       trigger_delay(25);
+                    trigger_delay(25);
                 }
 
                 break;
@@ -287,7 +304,59 @@ void Select ( unsigned char ch )
 
                 for ( y = 0; y < StripLights_MAX_X; y++ ) {
                     for ( x = 0; x < StripLights_MAX_X + 1; x += 1.0f ) {
-                        val = ( 1 + sinf ( ( 45.0f + ( x + y ) ) / 10 ) ) * 128.0f;
+                        val = ( 1 + arm_sin_f32 ( ( 45.0f + ( x + y ) ) / 10 ) ) * 128.0f;
+                        StripLights_Pixel ( x, 0, RGB ( val, ( val ), val ) );
+                    }
+
+                  trigger_delay(25);
+                }
+
+                for ( a = 0; a < 100; a++ ) {
+                    FadeStrip ( StripLights_MIN_X, StripLights_MAX_X + 1, a );
+
+                }
+
+                break;
+            }
+#else
+            case 'x':
+            {
+                      fix16_t ii, i;
+
+                //printf("ping pong fader\n");
+                for ( ii = fix16_one; ii < fix16_from_int( 128) ; ii += fix16_from_int(15) )
+                    for ( i = 0; i < 3; i += 0.1f ) {
+                        int val;
+                        val = fix16_to_int ( fix16_mul( fix16_sin ( i ) , ii) );
+                        StripLights_DisplayClear ( RGB ( val, ( val ), val ) );
+                        CyDelay ( 25 );
+                    }
+
+                for ( a = 0; a < 100; a++ ) {
+                    FadeStrip ( StripLights_MIN_X, StripLights_MAX_X + 1, a );
+                    trigger_delay(25);
+                }
+                
+                break;
+            }
+    
+            case 'y':
+            {
+                               
+                fix16_t y, x;
+                int val;
+
+                for ( y = 0; y < StripLights_MAX_X; y++ ) {
+                    for ( x = 0; x < (fix16_from_int(StripLights_MAX_X)+ fix16_one); x += fix16_one ) {
+                        
+
+                          val = ( 1 + fix16_sin ( ( 45.0f + ( x + y ) ) / 10 ) ) * 128.0f;
+                        val = fix16_to_int( 
+                                                fix16_mul (
+                                                    (fix16_one + (fix16_sin ( ( 45.0f + ( x + y ) ) / 10 ) )) , fix16_from_int(128 )
+                                                )
+                        );
+                        
                         StripLights_Pixel ( x, 0, RGB ( val, ( val ), val ) );
                     }
 
@@ -302,6 +371,7 @@ void Select ( unsigned char ch )
                 break;
             }
 #endif
+
         case ' ':
             //printf ( "StripLights_BLACK\n" );
             StripLights_DisplayClear ( 0 );

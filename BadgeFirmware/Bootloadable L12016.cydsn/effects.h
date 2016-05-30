@@ -10,8 +10,10 @@
  * ========================================
 */
 #ifndef _EFFECTS_H_
-	#define _EFFECTS_H_ 1
-	
+#define _EFFECTS_H_ 1
+
+#define USE_FLOAT_APPROX             ( 1 )
+    
 #include <project.h>
 
 typedef union rgb_t { 
@@ -38,11 +40,18 @@ typedef uint8_t   fract8;   // ANSI: unsigned short _Fract
 typedef int8_t    sfract7;  // ANSI: signed   short _Fract
 typedef uint16_t  fract16;  // ANSI: unsigned       _Fract
 typedef int16_t   sfract15; // ANSI: signed         _Fract
+typedef  float float32_t;   // CMSIS float size/
+typedef int32_t fix16_t;
 
+
+#define TABLE_SIZE  (256)   // sinapprox table size
 
 #define BYTE uint8_t
 #define WORD uint16_t
 #define DWORD uint32_t
+#define fix16_pi  ( 205887)  
+#define  fix16_one (0x00010000)
+
 typedef DWORD   COLORREF;
 
 #undef RGB
@@ -91,6 +100,17 @@ void Meet(uint16_t count);
 
 uint8_t at_parse(const char* data, const char* data_expected);
 uint16_t at_getstr( char *const buffer ,uint16_t length,uint16_t timeout);
+
+
+// in utils.c
+extern float32_t arm_sin_f32( float32_t x);
+static inline int fix16_to_int(fix16_t a){return a >> 16;};
+extern fix16_t fix16_div(fix16_t inArg0, fix16_t inArg1);
+
+static inline fix16_t fix16_from_int(int a) { return a * fix16_one; };
+fix16_t fix16_mul(fix16_t inArg0, fix16_t inArg1);
+fix16_t fix16_sin(fix16_t inAngle) ;
+
 /* [] END OF FILE */
 
 #endif
