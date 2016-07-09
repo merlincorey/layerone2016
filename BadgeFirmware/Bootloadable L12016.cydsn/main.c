@@ -122,6 +122,7 @@ int initialize_wifi() {
 }
 
 void initialize(int dimness) {
+  int is_present;
   initialize_uart_bootloader();
   initialize_striplights();
   is_present = initialize_wifi();
