@@ -87,6 +87,16 @@ void initialize_uart_bootloader() {
 
 void initialize_striplights() {
   StripLights_Start();
+  
+  // LED drive on or off ?
+  P1_6_SetDriveMode ( P1_6_DM_STRONG ) ;
+  // LED on 
+  P1_6_Write ( 1 );
+  // diode is not bypassed for LED's
+  // dim 2   40 - 60mA @ 3V
+  // dim 3   30 - 40mA @ 3V
+  // dim 4   20mA      @ 3V
+  // dim 4   20 - 40mA @ 5V  
 }
 
 void initialize_wifi() {
@@ -106,17 +116,6 @@ void initialize() {
   initialize_wifi();
   // Enable global interrupts
   CyGlobalIntEnable;
-  // LED drive on or off ?
-  P1_6_SetDriveMode ( P1_6_DM_STRONG ) ;
-
-  // LED on 
-  P1_6_Write ( 1 );
-
-  // diode is not bypassed for LED's
-  // dim 2   40 - 60mA @ 3V
-  // dim 3   30 - 40mA @ 3V
-  // dim 4   20mA      @ 3V
-  // dim 4   20 - 40mA @ 5V
 }
 
 int wifi_present() {
@@ -128,8 +127,6 @@ void striplights_displayclear_delay(uint32_t color, int microseconds) {
   StripLights_DisplayClear(color);
   CyDelay(microseconds);
 }
-
-
 
 int main() {
   initialize();
