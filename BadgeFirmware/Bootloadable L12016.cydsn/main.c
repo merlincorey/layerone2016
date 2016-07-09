@@ -59,8 +59,6 @@
 *   Active Protocol : SWD
 ******************************************************************************/
 
-
-
 /**
  ** Set CHARLIE to 1 to use charlie-x's original code
  **/
@@ -76,6 +74,8 @@
 #include "charlie.h"
 
 #else
+
+#include <project.h>
 
 void initialize_uart_bootloader() {
   UART_Start();
