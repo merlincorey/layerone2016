@@ -124,10 +124,12 @@ int wifi_present() {
   return (0 != GPIO2_Read());
 }
 
-void striplights_displayclear_delay(uint32 color, int microseconds) {
+void striplights_displayclear_delay(uint32_t color, uint8_t microseconds) {
   StripLights_DisplayClear(color);
   CyDelay(microseconds);
 }
+
+
 
 int main() {
   initialize();
@@ -151,10 +153,8 @@ int main() {
 				 500);
   striplights_displayclear_delay(StripLights_BLUE_MASK,
 				 500);
-
-  StripLights_DisplayClear(0);
-  CyDelay(2000);
-
+  striplights_displayclear_delay(0,
+				 2000);
   //reset board
   CySoftwareReset();  
 
