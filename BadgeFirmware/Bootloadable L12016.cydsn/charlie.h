@@ -1,6 +1,6 @@
 /******************************************************************************
 * Project Name		: Bootloadable Blinking LED
-* File Name		: charlie.c
+* File Name		: charlie.h
 * Version 		: 1.0
 * Device Used		: CY8C4245AXI-483
 * Software Used		: PSoC Creator 3.0
