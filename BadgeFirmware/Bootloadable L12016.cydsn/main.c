@@ -77,9 +77,15 @@
 
 #else
 
+void initialize_uart_bootloader() {
+  UART_Start();
+  UART_SpiUartClearRxBuffer();
+  UART_SpiUartClearTxBuffer();  
+}
+
 void initialize() {
   // Start UART component and clear the TX and RX buffers
-  CyBtldrCommStart();
+  initialize_uart_bootloader();
 }
 
 int main() {
