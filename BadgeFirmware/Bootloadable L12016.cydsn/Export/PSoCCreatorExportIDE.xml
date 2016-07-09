@@ -41,7 +41,6 @@
           <File BuildType="BUILD" Toolchain="">.\utils.c</File>
           <File BuildType="BUILD" Toolchain="">.\device.h</File>
           <File BuildType="BUILD" Toolchain="">.\effects.h</File>
-          <File BuildType="BUILD" Toolchain="">.\charlie.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\nullspace\github.com\merlincorey\layerone2016\BadgeFirmware\Bootloadable L12016.cydsn\Generated_Source\PSoC4">
