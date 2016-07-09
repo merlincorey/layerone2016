@@ -83,13 +83,78 @@ void initialize_uart_bootloader() {
   UART_SpiUartClearTxBuffer();  
 }
 
+void initialize_striplights() {
+  StripLights_Start();
+}
+
+void initialize_wifi() {
+  // Setting for ESP8266 enable */
+  CH_PD_SetDriveMode ( CH_PD_DM_STRONG ) ;
+  // ESP8266 off
+  CH_PD_Write ( 0 );
+  // start wifi for esp wifi
+  uWIFI_Start();
+  uWIFI_SpiUartClearRxBuffer();
+  
+}
+
 void initialize() {
-  // Start UART component and clear the TX and RX buffers
   initialize_uart_bootloader();
+  initialize_striplights();
+  initialize_wifi();
+  // Enable global interrupts
+  CyGlobalIntEnable;
+  // LED drive on or off ?
+  P1_6_SetDriveMode ( P1_6_DM_STRONG ) ;
+
+  // LED on 
+  P1_6_Write ( 1 );
+
+  // diode is not bypassed for LED's
+  // dim 2   40 - 60mA @ 3V
+  // dim 3   30 - 40mA @ 3V
+  // dim 4   20mA      @ 3V
+  // dim 4   20 - 40mA @ 5V
+}
+
+int wifi_present() {
+  // detect ESP8266  
+  return (0 != GPIO2_Read());
+}
+
+void striplights_displayclear_delay(int color, int microseconds) {
+  StripLights_DisplayClear(color);
+  CyDelay(microseconds);
 }
 
 int main() {
   initialize();
+
+  if (wifi_present()) {
+    // lower brightness when ESP is connected
+    StripLights_Dim(4);
+    // detected so different colour
+    StripLights_DisplayClear(StripLights_ORANGE);
+    CyDelay(500);
+    StripLights_DisplayClear(StripLights_BLACK);
+  } else {
+    StripLights_Dim(3);
+    // if gets to here WiFi didn't connect, or isn't present so turn it off.
+    CH_PD_Write(0);
+  }
+
+  striplights_displayclear_delay(StripLights_RED_MASK,
+				 500);
+  striplights_displayclear_delay(StripLights_GREEN_MASK,
+				 500);
+  striplights_displayclear_delay(StripLights_BLUE_MASK,
+				 500);
+
+  StripLights_DisplayClear(0);
+  CyDelay(2000);
+
+  //reset board
+  CySoftwareReset();  
 
   return 0;
 }
