@@ -124,7 +124,7 @@ int wifi_present() {
   return (0 != GPIO2_Read());
 }
 
-void striplights_displayclear_delay(uint32_t color, uint8_t microseconds) {
+void striplights_displayclear_delay(uint32_t color, int microseconds) {
   StripLights_DisplayClear(color);
   CyDelay(microseconds);
 }
