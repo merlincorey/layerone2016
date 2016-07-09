@@ -71,7 +71,7 @@
  **/
 #if (CHARLIE)
 
-  #include "charlie.c"
+#include "charlie.h"
 
 #else
 
