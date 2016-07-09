@@ -118,7 +118,7 @@ void initialize() {
   CyGlobalIntEnable;
 }
 
-int wifi_present() {
+int is_wifi_present() {
   // detect ESP8266  
   return (0 != GPIO2_Read());
 }
@@ -131,7 +131,7 @@ void striplights_displayclear_delay(uint32_t color, int microseconds) {
 int main() {
   initialize();
 
-  if (wifi_present()) {
+  if (is_wifi_present()) {
     StripLights_Dim(4);
     striplights_displayclear_delay(StripLights_ORANGE,
 				   500);
