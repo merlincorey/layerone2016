@@ -59,6 +59,8 @@
 *   Active Protocol : SWD
 ******************************************************************************/
 
+
+
 /**
  ** Set CHARLIE to 1 to use charlie-x's original code
  **/
@@ -75,7 +77,14 @@
 
 #else
 
+void initialize() {
+  // Start UART component and clear the TX and RX buffers
+  CyBtldrCommStart();
+}
+
 int main() {
+  initialize();
+
   return 0;
 }
 
