@@ -77,6 +77,8 @@
 
 #include <project.h>
 
+extern const uint32 StripLights_CLUT[];
+
 void initialize_uart_bootloader() {
   UART_Start();
   UART_SpiUartClearRxBuffer();
