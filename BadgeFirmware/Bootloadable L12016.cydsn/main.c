@@ -77,6 +77,8 @@
 
 #include <project.h>
 
+#define DEFAULT_DIMNESS 3
+
 extern const uint32 StripLights_CLUT[];
 
 void initialize_uart_bootloader() {
@@ -99,28 +101,37 @@ void initialize_striplights() {
   // dim 4   20 - 40mA @ 5V  
 }
 
-void initialize_wifi() {
-  // Setting for ESP8266 enable */
-  CH_PD_SetDriveMode ( CH_PD_DM_STRONG ) ;
+void wifi_off() {
   // ESP8266 off
   CH_PD_Write ( 0 );
-  // start wifi for esp wifi
-  uWIFI_Start();
-  uWIFI_SpiUartClearRxBuffer();
-  
-}
-
-void initialize() {
-  initialize_uart_bootloader();
-  initialize_striplights();
-  initialize_wifi();
-  // Enable global interrupts
-  CyGlobalIntEnable;
 }
 
 int is_wifi_present() {
   // detect ESP8266  
   return (0 != GPIO2_Read());
+}
+
+int initialize_wifi() {
+  // Setting for ESP8266 enable */
+  CH_PD_SetDriveMode ( CH_PD_DM_STRONG ) ;
+  wifi_off();  
+  // start wifi for esp wifi
+  uWIFI_Start();
+  uWIFI_SpiUartClearRxBuffer();
+  return (is_wifi_present());
+}
+
+void initialize(int dimness) {
+  initialize_uart_bootloader();
+  initialize_striplights();
+  is_present = initialize_wifi();
+  if (is_present) {
+    StripLights_Dim(dimness + 1);
+  } else {
+    StripLights_Dim(dimness);
+  }
+  // Enable global interrupts
+  CyGlobalIntEnable;
 }
 
 void striplights_displayclear_delay(uint32_t color, int microseconds) {
@@ -129,17 +140,14 @@ void striplights_displayclear_delay(uint32_t color, int microseconds) {
 }
 
 int main() {
-  initialize();
+  initialize(DEFAULT_DIMNESS);
 
   if (is_wifi_present()) {
-    StripLights_Dim(4);
     striplights_displayclear_delay(StripLights_ORANGE,
 				   500);
     StripLights_DisplayClear(StripLights_BLACK);
   } else {
-    StripLights_Dim(3);
-    // if gets to here WiFi didn't connect, or isn't present so turn it off.
-    CH_PD_Write(0);
+    wifi_off();
   }
 
   striplights_displayclear_delay(StripLights_RED_MASK,
