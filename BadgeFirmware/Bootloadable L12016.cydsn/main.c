@@ -132,11 +132,9 @@ int main() {
   initialize();
 
   if (wifi_present()) {
-    // lower brightness when ESP is connected
     StripLights_Dim(4);
-    // detected so different colour
-    StripLights_DisplayClear(StripLights_ORANGE);
-    CyDelay(500);
+    striplights_displayclear_delay(StripLights_ORANGE,
+				   500);
     StripLights_DisplayClear(StripLights_BLACK);
   } else {
     StripLights_Dim(3);
